@@ -9,15 +9,15 @@ layout: blog
 
 In javascript we define functions as following:
 
-```python
+```js
 function some(){   
 ```
 
-```python
+```js
     console.log("This is a function");
 ```
 
-```python
+```js
 }
 ```
 
@@ -25,6 +25,6 @@ function some(){
 
 But this can be expressed in short hands using arrow function like below:
 
-```python
+```js
 const some = () => console.log("this is an arrow function");
 ```
