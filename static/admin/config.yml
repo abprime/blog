@@ -2,6 +2,7 @@ backend:
   name: git-gateway
   branch: master
 media_folder: static/uploads
+publish_mode: editorial_workflow
 public: uploads
 collections:
   - name: "coding"
@@ -10,10 +11,20 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}_{{slug}}"
     fields:
-      - {label: "Title", name: "title", widget: "string", pattern: ['.{20,}', "Must have at least 20 characters"]}
-      - {label: "Summary", name: "summary", widget: "string"}
-      - {label: "Published Date", name: "date", widget: "date"}
-      - {label: "Updated Date", name: "updated", widget: "date"}
-      - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
-      - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {
+          label: "Title",
+          name: "title",
+          widget: "string",
+          pattern: [".{20,}", "Must have at least 20 characters"],
+        }
+      - { label: "Summary", name: "summary", widget: "string" }
+      - { label: "Published Date", name: "date", widget: "date" }
+      - { label: "Updated Date", name: "updated", widget: "date" }
+      - { label: "Layout", name: "layout", widget: "hidden", default: "blog" }
+      - {
+          label: "Featured Image",
+          name: "thumbnail",
+          widget: "image",
+          required: false,
+        }
+      - { label: "Body", name: "body", widget: "markdown" }
