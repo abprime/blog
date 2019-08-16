@@ -2,17 +2,12 @@ import React from "react";
 import Page from "../layouts/main";
 import { NextPage } from "next";
 import { List, ListItem, Typography } from "@material-ui/core";
-
-var req = require.context("../content", true, /\.md$/);
+import reqMap from "../resources/postContext";
 
 export interface IPost {
-  attributes: {
-    title: string;
-    date: Date;
-    layout: string;
-  };
-  body: string;
+  attributes: { title: string; date: Date; layout: string; summary: string };
   html: string;
+  body: string;
 }
 
 interface Props {
@@ -25,22 +20,19 @@ const Post: NextPage<Props> = ({ post }) => {
     <Page>
       <div>this is coding page</div>
       <Typography variant="h2">{post.attributes.title}</Typography>
+      <Typography variant="h5">{post.attributes.summary}</Typography>
       <Typography variant="subtitle1">{post.attributes.date}</Typography>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
     </Page>
   );
 };
 
-Post.getInitialProps = async params => {
+Post.getInitialProps = async ({ query }) => {
   // console.log("**** req:", params);
-  const {
-    query: { id }
-  } = params;
-  const path: string = id as string;
-  const post: IPost = await req(path);
-  // console.log("post", post);
+  const { category, name }: { name?: string; category?: string } = query;
+  console.log("post, category", name, category);
+  const post: IPost = reqMap(`./${category}/${name}`);
   return { post };
-  // return {};
 };
 
 export default Post;
