@@ -18,13 +18,18 @@ class SiteDocument extends Document {
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
-          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-          <script>
-               (adsbygoogle = window.adsbygoogle || []).push({
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `(adsbygoogle = window.adsbygoogle || []).push({
                     google_ad_client: "ca-pub-9889138091411175",
                     enable_page_level_ads: true
-               });
-          </script>
+               });`
+            }}
+          />
         </Head>
         <body>
           <Main />
