@@ -14,6 +14,10 @@ class SiteDocument extends Document {
             content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
           />
           <meta name="theme-color" content={theme.palette.primary.main} />
+          <meta
+            name="google-site-verification"
+            content="pDLTkzz0sWAgbOqMpCzyJyhHF7SeXr45mhWtRGnwe3Q"
+          />
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
